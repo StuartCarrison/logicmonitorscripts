@@ -1,0 +1,17 @@
+use AXDB_PROD
+		select cast(Round((YtdConv.YtdConversions / cast((Pros.NumProspects + YtdConv.YtdConversions) as numeric(18,9)))*100,2) as int) as ConvRate
+		from   (select count(*) as NumProspects
+				from   dbo.SmmBusRelTable
+				where  BusRelTypeID = 'Customer') as Pros
+		join   (select count(*) as YtdConversions
+				from   dbo.CustTable as ct
+				join   (select FcpStart.StartDate
+        				from   dbo.FiscalCalendarPeriod as FcpCur
+        				join   dbo.FiscalCalendarYear as Fcy on Fcy.RecID = FcpCur.FiscalCalendarYear
+        				join   dbo.FiscalCalendarPeriod as FcpStart on FcpStart.FiscalCalendarYear = FcpCur.FiscalCalendarYear and FcpStart.Type = 0
+        				where  getdate() between FcpCur.StartDate and FcpCur.EndDate) as ytd on 1=1
+				where  ct.CreatedDateTime >= ytd.Startdate
+				and    ct.CustGroup in (select distinct CustGroup
+										from   dbo.CustGroup
+										where  CustGroup like 'W-%'
+										and    CustGroup not in ('W-AGENCY','W-INTJV','W-LIQUID','W-SMS'))) as YtdConv on 1=1;
