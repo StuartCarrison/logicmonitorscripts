@@ -1,0 +1,25 @@
+use AXDB_PROD
+SELECT isnull(sum(Cit.Qty),0) as Qty, isnull(sum( Cit.LineAmount / Exr.ExchangeRate ),0) as GBPAmt
+              FROM   dbo.CustInvoiceTrans     as Cit
+              join   dbo.CustInvoiceJour      as Cij  on Cij.DATAAREAID = Cit.DATAAREAID
+                                                     and Cij.PARTITION = Cit.PARTITION
+                                                     and Cij.INVOICEID = Cit.INVOICEID
+              join   dbo.CustTable            as Ct   on Ct.DATAAREAID = Cij.DATAAREAID
+                                                     and Ct.PARTITION = Cij.PARTITION
+                                                     and Ct.accountnum = Cij.invoiceaccount
+              join   (select Ercp.ToCurrencyCode, (Er.ExchangeRate / 100) as ExchangeRate
+                                                       from   dbo.ExchangeRateCurrencyPair as Ercp
+                                                       join   dbo.ExchangeRateType         as Ert   on Ert.RecID = Ercp.ExchangeRateType
+                                                                                                                                  and Ert.Name = 'Budget'
+                                                       join   dbo.ExchangeRate             as Er    on Er.ExchangeRateCurrencyPair = Ercp.RecID
+                                                                                                                                  and Er.ValidFrom <= getdate()
+                                                                                                                                  and Er.ValidTo >= getdate()
+                                                       union select 'GBP', 1) as Exr on Exr.ToCurrencyCode = Cij.CurrencyCode
+              join dbo.SalesTable as St on St.DataAreaID = Cit.DataAreaID and St.Partition = Cit.Partition and St.SalesID = Cit.SalesID and St.SmmCampaignID like '%FOOTWEAR%'
+              where Ct.CustGroup in (select distinct CustGroup
+                                                       from   dbo.CustGroup
+                                                       where  CustGroup like 'W-%'
+                                                       and    CustGroup not in ('W-AGENCY','W-INTJV','W-LIQUID','W-SMS'))
+              and Cit.SALESID <> ''
+              and Cit.DataAreaID = 'TBUK'
+              and cast(Cit.CreatedDateTime as date) = cast(GETDATE() as date); --Daily
