@@ -1,0 +1,4 @@
+use AXDB_PROD
+select count(*) as NumProspects
+		from   dbo.SmmBusRelTable
+		where  BusRelTypeID = 'Customer';
