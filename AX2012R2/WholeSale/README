@@ -1,0 +1,1 @@
+These are examples of how SQL queries can be used to generate business monitoring metrics. In these examples, our company "TB" has a wholesale business function that operates independantly of Retail and Ecommerce, and requires distinct metrics on it's dashboards and reports.
