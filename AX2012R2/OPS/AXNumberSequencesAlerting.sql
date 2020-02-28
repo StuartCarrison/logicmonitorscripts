@@ -1,0 +1,4 @@
+SELECT CAST ((CAST((HIGHEST - NEXTREC) AS DECIMAL(20,2))/(CAST((HIGHEST - LOWEST) AS DECIMAL(20,2))) * 100) AS DECIMAL(5,2)) AS [PercentRemaining], 
+*  FROM [dbo].[NUMBERSEQUENCETABLE] 
+where NUMBERSEQUENCE not in ( 'Gene_3','Stoc_682')
+order by PercentRemaining
