@@ -1,0 +1,207 @@
+###Files older than 30 Minutes###
+$Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL\ProShare\Studio\2. Product Content\1. Images Uploaded\Product\Kids\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_Kids = "$incre}
+    Else
+    {
+    Write-Host "Studio_Kids = "0}
+    
+$Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL\ProShare\Studio\2. Product Content\1. Images Uploaded\Product\Kids\Concessions\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_Kids_Concessions = "$incre}
+    Else
+    {
+    Write-Host "Studio_Kids_Concessions = "0}
+    
+    
+$Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL\ProShare\Studio\2. Product Content\1. Images Uploaded\Product\Mens\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_Mens = "$incre}
+    Else
+    {
+    Write-Host "Studio_Mens = "0}
+    
+    
+    $Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL\ProShare\Studio\2. Product Content\1. Images Uploaded\Product\Mens\Concessions\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_Mens_Concessions = "$incre}
+    Else
+    {
+    Write-Host "Studio_Mens_Concessions = "0}
+    
+    
+    $Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL\ProShare\Studio\2. Product Content\1. Images Uploaded\Product\Womens\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_Womens = "$incre}
+    Else
+    {
+    Write-Host "Studio_Womens = "0}
+    
+    
+    $Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL.tedbaker.com\ProShare\Studio\2. Product Content\1. Images Uploaded\Product\Womens\Concessions\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_Womens_Concessions = "$incre}
+    Else
+    {
+    Write-Host "Studio_Womens_Concessions = "0}
+    
+    
+    $Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL.tedbaker.com\ProShare\Studio\2. Product Content\1. Images Uploaded\Product\Home-and-Gifts\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_Home_and_Gifts = "$incre}
+    Else
+    {
+    Write-Host "Studio_Home_and_Gifts = "0}
+    
+    
+    $Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL.tedbaker.com\ProShare\Studio\2. Product Content\1. Images Uploaded\Product\Home-and-Gifts\Concessions\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_Home_and_Gifts_Concessions = "$incre}
+    Else
+    {
+    Write-Host "Studio_Home_and_Gifts_Concessions = "0}
+    
+    
+    $Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL.tedbaker.com\ProShare\Studio\2. Product Content\1. Images Uploaded\Product\Cosmetics\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_Cosmetics = "$incre}
+    Else
+    {
+    Write-Host "Studio_Cosmetics = "0}
+    
+    
+    $Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL.tedbaker.com\ProShare\Studio\2. Product Content\1. Images Uploaded\Product\Cosmetics\Concessions\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_Cosmetics_Concessions = "$incre}
+    Else
+    {
+    Write-Host "Studio_Cosmetics_Concessions = "0}
+    
+    
+    $Date = Get-Date
+$incre = 0
+$Files = gci "\\GBLHQ-PANZUR-CL.tedbaker.com\ProShare\Studio\2. Product Content\1. Images Uploaded\content\1. To Upload\*.*"
+ForEach ($File in $Files)
+{
+    $FileDate = $File.LastWriteTime
+    $DURATION=$Date-$FileDate
+
+    If ($DURATION -gt "00:30:00") {$incre++}
+
+}
+    If ($incre -gt 0)
+    {
+    Write-Host "Studio_content = "$incre}
+    Else
+    {
+    Write-Host "Studio_content = "0}
