@@ -20,7 +20,7 @@ file=/root/Mule/Inbound.Warehouse.TBUKDerby/inboundfiles/errorlog.txt
 minimumsize=1
 actualsize=$(wc -c <"$file")
 if [ $actualsize -ge $minimumsize ]; then
-        echo "ALERT: Mulesoft integration ERROR FOLDER - one or more integration folders contains files 15 minutes or older. Please check the attached file for the exact location and files that are aged. " | mail -A /root/Mule/Inbound.Warehouse.TBUKDerby/inboundfiles/errorlog.txt -s "WARNING: FILES IN AX INTEGRATION MULESOFT ERROR FOLDER(S) - SEE ATTACHED" mulesoft.alert@TedBaker.com
+        echo "ALERT: Mulesoft integration ERROR FOLDER - one or more integration folders contains files 15 minutes or older. Please check the attached file for the exact location and files that are aged. " | mail -A /root/Mule/Inbound.Warehouse.TBUKDerby/inboundfiles/errorlog.txt -s "WARNING: FILES IN AX INTEGRATION MULESOFT ERROR FOLDER(S) - SEE ATTACHED" mulesoft.alert@
 else
     echo size is under $minimumsize bytes
 fi
